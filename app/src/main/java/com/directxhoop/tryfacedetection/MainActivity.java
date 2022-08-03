@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
     private float scaledBottom;
 
 
-    @SuppressLint("WrongViewCast")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
