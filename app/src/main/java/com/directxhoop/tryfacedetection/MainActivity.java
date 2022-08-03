@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
     // see the comments inside.
     private void bindPreview(ProcessCameraProvider cameraProvider) {
         Preview preview = new Preview.Builder()
-                //here we matched the preview size with the imageAnalysis size using the same .setTargetReso.., 1.5 day so that we found it fuuuu!!.
+                // here we are trying to match the preview size with the imageAnalysis size using the same .setTargetReso.., 1.5 day so that we found it fuuuu!!.
                 .setTargetResolution(new Size(binding.previewView.getWidth(), binding.previewView.getHeight()))
                 .build();
 
@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                 if (mediaImage != null) {
                     InputImage processImage =
                             InputImage.fromMediaImage(mediaImage, imageProxy.getImageInfo().getRotationDegrees());// creating an InputImage using that frame.
-                            //processing the inputImage.
+                            // processing the inputImage.
                             faceDetector
                                     .process(processImage)
                                     .addOnFailureListener(e -> {
@@ -120,9 +120,9 @@ public class MainActivity extends AppCompatActivity {
                                         for (Face face : results) {
                                             if (binding.previewView.getChildCount()>1) binding.previewView.removeViewAt(1);// to remove drawn rect before drawing another one
                                             Rect ourRect = face.getBoundingBox();
-                                            String text = "";
+                                            String text = "face";
                                             //get rect scales according to the camera used by the user (front/back).
-                                            checkAndset(ourRect.width(),ourRect.height(),ourRect.right,ourRect.left);
+                                            checkAndSet(ourRect.width(),ourRect.height(),ourRect.right,ourRect.left);
                                             //draw the bounding box and text.
                                             Draw element = new Draw(mContext,scaledLeft, ourRect.top, scaledRight,ourRect.bottom,ourRect,text);
                                             binding.previewView.addView(element); // add our drawing (rect and text) on top of the camera preview.
@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // set rect scales according to the camera used by the user (front/back).
-    public void checkAndset(float rectWidth, float rectHight,float rectRight,float rectLeft){
+    public void checkAndSet(float rectWidth, float rectHight,float rectRight,float rectLeft){
 
         //to revers box when using front camera
         float flippedLeft;

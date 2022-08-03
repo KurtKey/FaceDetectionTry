@@ -31,13 +31,13 @@ public class Draw extends View {
     // instantiate paints and giving characteristics
     private void init() {
         boundryPaint= new Paint();
-        boundryPaint.setColor(Color.RED);
+        boundryPaint.setColor(Color.BLACK);
         boundryPaint.setStrokeWidth(10f);
         boundryPaint.setStyle(Paint.Style.STROKE);
 
         textPaint= new Paint();
-        textPaint.setColor(Color.BLACK);
-        textPaint.setTextSize(50f);
+        textPaint.setColor(Color.RED);
+        textPaint.setTextSize(80f);
         textPaint.setStyle(Paint.Style.FILL);
     }
 
@@ -45,7 +45,7 @@ public class Draw extends View {
     @Override
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawText(text,rect.centerX(),rect.centerY(),textPaint);
+        canvas.drawText(text,left,rect.centerY(),textPaint);
         canvas.drawRect(left,top,right,bottom,boundryPaint);
     }
 
